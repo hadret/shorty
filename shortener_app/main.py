@@ -48,6 +48,11 @@ def create_url(url: schemas.URLBase, db: Session = Depends(get_db)):
     if not validators.url(url.target_url):  # pyright: ignore can't assign str to -> Any
         raise_bad_request(message="Your provided URL is invalid!")
 
+    if url.target_key:
+        url.target_key = "".join(
+            [c for c in url.target_key if c.isalnum() or c in ["-", "_"]]
+        )
+
     db_url = crud.create_db_url(db=db, url=url)
     return get_admin_info(db_url)
 
