@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.class
+*.db
+.env*
+.git*
+.venv
+.dockerignore
+Dockerfile
+pyrightconfig.json
+README.md
+Pipfile*
