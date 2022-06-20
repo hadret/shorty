@@ -1,7 +1,7 @@
 import secrets
 import string
-from sqlalchemy.orm import Session
 from . import crud
+from sqlalchemy.orm import Session
 
 
 def create_random_key(length: int = 5) -> str:

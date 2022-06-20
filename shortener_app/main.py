@@ -1,11 +1,11 @@
 import validators
+from . import crud, models, schemas
+from .config import get_settings
+from .database import SessionLocal, engine
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from starlette.datastructures import URL
-from . import crud, models, schemas
-from .database import SessionLocal, engine
-from .config import get_settings
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
@@ -45,7 +45,7 @@ def read_root():
 
 @app.post("/url", response_model=schemas.URLInfo)
 def create_url(url: schemas.URLBase, db: Session = Depends(get_db)):
-    if not validators.url(url.target_url):  # pyright: ignore can't assign str to -> Any
+    if not validators.url(url.target_url):
         raise_bad_request(message="Your provided URL is invalid!")
 
     if url.target_key:
@@ -63,7 +63,7 @@ def forward_to_target_url(
 ):
     if db_url := crud.get_db_url_by_key(db=db, url_key=url_key):
         crud.update_db_clicks(db=db, db_url=db_url)
-        return RedirectResponse(db_url.target_url)  # pyright: ignore
+        return RedirectResponse(db_url.target_url)
     else:
         raise_not_found(request)
 
