@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "shorty"
-version = "0.3.2"
+version = "0.5.1"
 description = "FastAPI driven URL shortener"
-authors = ["Filip Chabik <hadret@hey.com>"]
+authors = ["Filip Chabik <hadret@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
