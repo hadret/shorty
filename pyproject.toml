@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "shorty"
-version = "1.0.0"
+version = "1.0.1"
 description = "FastAPI driven URL shortener"
 authors = ["Filip Chabik <hadret@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 fastapi = "^0.109.0"
 uvicorn = "^0.27"
 SQLAlchemy = "^1.4.39"
