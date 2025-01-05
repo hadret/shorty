@@ -1,21 +1,20 @@
-[tool.poetry]
+[project]
+authors = [
+    {name = "Filip Chabik", email = "hadret@gmail.com"},
+]
+license = {text = "MIT"}
+requires-python = "<4.0,>=3.12"
+dependencies = [
+    "fastapi<1.0.0,>=0.109.0",
+    "uvicorn<1.0,>=0.27",
+    "SQLAlchemy<2.0.0,>=1.4.39",
+    "python-dotenv<2.0,>=1.0",
+    "validators<1.0.0,>=0.20.0",
+    "pydantic-settings<3.0,>=2.1",
+]
 name = "shorty"
-version = "1.0.2"
+version = "1.1.0"
 description = "FastAPI driven URL shortener"
-authors = ["Filip Chabik <hadret@gmail.com>"]
-license = "MIT"
 
-[tool.poetry.dependencies]
-python = "^3.12"
-fastapi = "^0.109.0"
-uvicorn = "^0.27"
-SQLAlchemy = "^1.4.39"
-python-dotenv = "^1.0"
-validators = "^0.20.0"
-pydantic-settings = "^2.1"
-
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = []
