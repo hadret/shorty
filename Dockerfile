@@ -7,8 +7,8 @@ ENV UV_PYTHON_DOWNLOADS=never \
 
 WORKDIR /code
 
-COPY pyproject.toml /code/
-RUN uv sync --no-dev --no-install-project
+COPY pyproject.toml uv.lock /code/
+RUN uv sync --frozen
 COPY ./shortener_app /code/app
 
 CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
